@@ -14,7 +14,7 @@ public class Woff {
         FontFactory fontFactory = FontFactory.getInstance();
         byte[] bytes;
         try {
-            File actualFile = new File("D:\\font.ttf");
+            File actualFile = new File("../resources/font.ttf");
             bytes = Files.toByteArray(actualFile);
             Font font = fontFactory.loadFonts(bytes)[0];
             WritableFontData wfd = ww.convert(font);
