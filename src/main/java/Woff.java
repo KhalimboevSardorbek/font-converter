@@ -20,7 +20,7 @@ public class Woff {
             Font font = fontFactory.loadFonts(bytes)[0];
             WritableFontData wfd = ww.convert(font);
 
-            FileOutputStream fs = new FileOutputStream(actualFile.getName().substring(0, actualFile.getName().lastIndexOf(".")) + ".woff");
+            FileOutputStream fs = new FileOutputStream("src/main/resources/" + actualFile.getName().substring(0, actualFile.getName().lastIndexOf(".")) + ".woff");
             wfd.copyTo(fs);
             fs.close();
             System.out.println("Conversion Success!");
