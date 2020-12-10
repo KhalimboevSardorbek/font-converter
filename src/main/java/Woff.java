@@ -3,6 +3,7 @@ import com.google.typography.font.sfntly.Font;
 import com.google.typography.font.sfntly.FontFactory;
 import com.google.typography.font.sfntly.data.WritableFontData;
 import com.google.typography.font.tools.conversion.woff.WoffWriter;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class Woff {
         FontFactory fontFactory = FontFactory.getInstance();
         byte[] bytes;
         try {
-            File actualFile = new File("../resources/font.ttf");
+            File actualFile = new File("src/main/resources/font.ttf");
             bytes = Files.toByteArray(actualFile);
             Font font = fontFactory.loadFonts(bytes)[0];
             WritableFontData wfd = ww.convert(font);
@@ -22,6 +23,7 @@ public class Woff {
             FileOutputStream fs = new FileOutputStream(actualFile.getName().substring(0, actualFile.getName().lastIndexOf(".")) + ".woff");
             wfd.copyTo(fs);
             fs.close();
+            System.out.println("Conversion Success!");
         } catch (IOException e1) {
             e1.printStackTrace();
         }
